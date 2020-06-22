@@ -1,6 +1,7 @@
-package org.wcci.blog;
+package org.wcci.blog.storage;
 
 import org.springframework.stereotype.Service;
+import org.wcci.blog.storage.repositories.PostRepository;
 
 @Service
 public class PostStorage {
@@ -9,5 +10,5 @@ public class PostStorage {
     public PostStorage(PostRepository postRepo) {
         this.postRepo = postRepo;
     }
-    
+
 }
