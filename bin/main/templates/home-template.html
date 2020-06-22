@@ -17,10 +17,9 @@
       <h1>Miata Blog</h1>
     </header>
     <section>
-      <ul>
-        <li class="maintenance-tab"><a href="./maintenance-template.html">Maintenance</a></li>
-        <li class="modifications-tab"><a href="./category-template.html">Modifications</a></li>
-        <li class="social-tab"><a href="./social-template.html">Social</a></li>
+      <ul th:each="category: ${categories}">
+        <li><a th:text="${category.name}" th:href="@{'/categories/'+${category.name}}">Maintenance</a></li>
+        
       </ul>
     </section>
   </body>

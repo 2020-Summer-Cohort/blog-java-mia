@@ -13,11 +13,14 @@
   </head>
   <body>
     <header>
-      <h1>Modifications</h1>
-      <h2>
+      <h1 th:text="${category.name}">Modifications</h1>
+      <h2 th:text="${category.description}">
         This page should only have posts about modifications, such as turbo
         posts.
       </h2>
+      <ul th:each="post: ${category.posts}">
+        
+      </ul>
     </header>
   </body>
 </html>

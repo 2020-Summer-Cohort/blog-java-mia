@@ -5,5 +5,5 @@ import org.wcci.blog.entities.Category;
 
 public interface CategoryRepository extends CrudRepository<Category, Long> {
 
-    Category findByName(String categoryName);
+    Category findByTitle(String categoryTitle);
 }

@@ -12,11 +12,13 @@ public class CategoryStorage {
         this.categoryRepo = categoryRepo;
     }
 
-    public Category findCategoryByName(String categoryName) {
-        return categoryRepo.findByName(categoryName);
+    public Category findCategoryByTitle(String categoryTitle) {
+        return categoryRepo.findByTitle(categoryTitle);
     }
 
     public Iterable<Category> findAllCategories(){
         return categoryRepo.findAll();
     }
+
+
 }

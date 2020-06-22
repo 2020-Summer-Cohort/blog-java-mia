@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.Collection;
+import java.util.Objects;
+
 @Entity
 public class Category {
     @Id
@@ -12,15 +14,16 @@ public class Category {
     private long id;
     private String title;
     private String description;
-    @OneToMany
-    private Collection<Post> posts;
 
     protected Category(){}
 
-    public Category(String title, String description, Collection<Post> posts) {
+    public Category(String title, String description) {
         this.title = title;
         this.description = description;
-        this.posts = posts;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -31,7 +34,27 @@ public class Category {
         return description;
     }
 
-    public Collection<Post> getPosts() {
-        return posts;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return id == category.id &&
+                Objects.equals(title, category.title) &&
+                Objects.equals(description, category.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, description);
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
