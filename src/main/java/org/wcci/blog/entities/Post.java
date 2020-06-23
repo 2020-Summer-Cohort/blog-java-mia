@@ -3,6 +3,7 @@ package org.wcci.blog.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +16,8 @@ public class Post {
     private int year;
     private String body;
     private String author;
+    @ManyToOne
+    private Category category;
 
     protected Post(){}
 
@@ -24,6 +27,10 @@ public class Post {
         this.year = year;
         this.body = body;
         this.author = author;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getTitle() {

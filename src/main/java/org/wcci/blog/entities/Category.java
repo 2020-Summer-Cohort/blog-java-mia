@@ -12,13 +12,15 @@ public class Category {
     @Id
     @GeneratedValue
     private long id;
-    private String title;
+    private String name;
     private String description;
+    @OneToMany(mappedBy = "category")
+    private Collection<Post> posts;
 
     protected Category(){}
 
-    public Category(String title, String description) {
-        this.title = title;
+    public Category(String name, String description) {
+        this.name = name;
         this.description = description;
     }
 
@@ -26,13 +28,19 @@ public class Category {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
     public String getDescription() {
         return description;
     }
+
+    public Collection<Post> getPosts() {
+        return posts;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -40,20 +48,20 @@ public class Category {
         if (o == null || getClass() != o.getClass()) return false;
         Category category = (Category) o;
         return id == category.id &&
-                Objects.equals(title, category.title) &&
+                Objects.equals(name, category.name) &&
                 Objects.equals(description, category.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description);
+        return Objects.hash(id, name, description);
     }
 
     @Override
     public String toString() {
         return "Category{" +
                 "id=" + id +
-                ", title='" + title + '\'' +
+                ", title='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }
