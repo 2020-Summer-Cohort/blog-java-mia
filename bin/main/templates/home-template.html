@@ -9,18 +9,26 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/style.css" type="text/css" />
-    <!-- <link rel="stylesheet" href="./css/home-layout.css" type="text/css" /> -->
+    <link rel="stylesheet" href="./css/home-layout.css" type="text/css" />
     <title>Miata Blog</title>
   </head>
   <body>
-    <header>
-      <h1>Miata Blog</h1>
-    </header>
-    <section>
-      <ul th:each="category: ${categories}">
-        <li><a th:text="${category.name}" th:href="@{'/categories/'+${category.name}}">Maintenance</a></li>
-        
-      </ul>
-    </section>
+    <div class="container">
+      <header>
+        <h1>Miata Blog</h1>
+      </header>
+      <section>
+        <nav class="navbar">
+          <ul th:each="category: ${categories}">
+            <li>
+              <a
+                th:text="${category.name}"
+                th:href="@{'/categories/'+${category.name}}">
+                Maintenance</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </div>
   </body>
 </html>
