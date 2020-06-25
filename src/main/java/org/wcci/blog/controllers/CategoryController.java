@@ -8,7 +8,7 @@ import org.wcci.blog.storage.CategoryStorage;
 
 @Controller
 public class CategoryController {
-    CategoryStorage categoryStorage;
+    private CategoryStorage categoryStorage;
 
     public CategoryController(CategoryStorage categoryStorage){
         this.categoryStorage = categoryStorage;
