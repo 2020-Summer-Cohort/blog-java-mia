@@ -19,4 +19,12 @@ public class PostStorage {
     public Iterable<Post> findAllPosts() {
         return postRepo.findAll();
     }
+
+    public void addPost(Post post) {
+        postRepo.save(post);
+    }
+
+    public void deletePost(Post post) {
+        postRepo.delete(post);
+    }
 }

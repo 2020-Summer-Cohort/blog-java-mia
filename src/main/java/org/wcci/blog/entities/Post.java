@@ -1,9 +1,9 @@
 package org.wcci.blog.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -18,15 +18,20 @@ public class Post {
     private String author;
     @ManyToOne
     private Category category;
+    @ManyToMany
+    private Collection<Hashtag> hashtags;
+    @OneToMany(mappedBy = "post")
+    private Collection<UserComment> userComments;
 
     protected Post(){}
 
-    public Post(String model, int year, String title, String body, String author) {
+    public Post(String model, int year, String title, String body, String author, Hashtag... hashtags) {
         this.title = title;
         this.model = model;
         this.year = year;
         this.body = body;
         this.author = author;
+        this.hashtags = new ArrayList<>(Arrays.asList(hashtags));
     }
 
     public Long getId() {
@@ -51,6 +56,14 @@ public class Post {
 
     public String getAuthor() {
         return author;
+    }
+
+    public Collection<Hashtag> getHashtags() {
+        return hashtags;
+    }
+
+    public void addHashtag(Hashtag hashtagToAdd) {
+        hashtags.add(hashtagToAdd);
     }
 
 
