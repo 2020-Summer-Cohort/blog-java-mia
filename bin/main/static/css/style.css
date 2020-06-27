@@ -38,3 +38,13 @@ li {
     color: white;
     display: inline-flex;
 }
+
+.input-align {
+    color: gray;
+    margin-left: 20px;
+}
+
+.input-align label {
+    position: absolute;
+    margin-left: 20px;
+}

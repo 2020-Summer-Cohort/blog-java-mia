@@ -40,13 +40,12 @@ public class Hashtag {
         if (o == null || getClass() != o.getClass()) return false;
         Hashtag hashtag = (Hashtag) o;
         return id == hashtag.id &&
-                Objects.equals(hashtagName, hashtag.hashtagName) &&
-                Objects.equals(posts, hashtag.posts);
+                Objects.equals(hashtagName, hashtag.hashtagName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, hashtagName, posts);
+        return Objects.hash(id, hashtagName);
     }
 
     @Override
@@ -54,7 +53,6 @@ public class Hashtag {
         return "Hashtag{" +
                 "id=" + id +
                 ", hashtagName='" + hashtagName + '\'' +
-                ", posts=" + posts +
                 '}';
     }
 }

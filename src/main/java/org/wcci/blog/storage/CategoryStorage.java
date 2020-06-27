@@ -12,8 +12,8 @@ public class CategoryStorage {
         this.categoryRepo = categoryRepo;
     }
 
-    public Category findCategoryByName(String categoryName) {
-        return categoryRepo.findByName(categoryName);
+    public Category findCategoryByName(String name) {
+        return categoryRepo.findByName(name);
     }
 
     public Iterable<Category> findAllCategories(){

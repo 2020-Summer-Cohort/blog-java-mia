@@ -9,18 +9,42 @@
       href="https://fonts.googleapis.com/css2?family=Dosis&family=Montserrat:wght@300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/style.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="../css/style.css" type="text/css" /> -->
   </head>
   <body>
     <header>
-      <h1 th:text="${category.name}">Modifications</h1>
-      <h2 th:text="${category.description}">
+      <h1 th:text="${category.name}" class="category-name">Modifications</h1>
+      <h2 th:text="${category.description}" class="category-description">
         This page should only have posts about modifications, such as turbo
         posts.
       </h2>
       <ul th:each="post: ${category.posts}">
-
+        <li><a th:text="${post.title}" th:href="@{'/posts/'+ ${post.title}}"></a></li>
       </ul>
+      <section>
+        <h3>Create a Post:</h3>
+        <form action="post/add" method="POST" class="new-post-form">
+          <div class="input-align">
+            <label for="new-post-title" class="form-label">Title</label>
+            <input type="text" name="title" id="new-post-title">
+            <br>
+            <label for="new-post-model" class="form-label">Model</label>
+            <input type="text" name="model" id="new-post-model">
+            <br>
+            <label for="new-post-year" class="form-label">Year</label>
+            <input type="text" name="year" id="new-post-year">
+            <br>
+            <label for="new-post-body" class="form-label">Body</label>
+            <textarea class="textbox-id" name="body" id="new-post-body" cols="30" rows="10" maxlength="250"></textarea>
+            <br>
+            <label for="new-post-author" class="form-label">Author</label>
+            <input type="text" name="author" id="new-post-author">
+            <br>
+            <input type="hidden" name="category" id="" th:value="${category.id}">
+            <button class="btn" type="submit">Submit</button>
+          </div>
+        </form>
+      </section>
     </header>
   </body>
 </html>

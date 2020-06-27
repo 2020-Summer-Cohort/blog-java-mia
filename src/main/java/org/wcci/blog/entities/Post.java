@@ -25,16 +25,17 @@ public class Post {
 
     protected Post(){}
 
-    public Post(String model, int year, String title, String body, String author, Hashtag... hashtags) {
+    public Post(String model, int year, String title, String body, String author, Category category, Hashtag...hashtags) {
         this.title = title;
         this.model = model;
         this.year = year;
         this.body = body;
         this.author = author;
+        this.category = category;
         this.hashtags = new ArrayList<>(Arrays.asList(hashtags));
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
@@ -58,6 +59,10 @@ public class Post {
         return author;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
     public Collection<Hashtag> getHashtags() {
         return hashtags;
     }
@@ -66,6 +71,9 @@ public class Post {
         hashtags.add(hashtagToAdd);
     }
 
+    public Collection<UserComment> getUserComments() {
+        return userComments;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -77,12 +85,13 @@ public class Post {
                 Objects.equals(title, post.title) &&
                 Objects.equals(model, post.model) &&
                 Objects.equals(body, post.body) &&
-                Objects.equals(author, post.author);
+                Objects.equals(author, post.author) &&
+                Objects.equals(category, post.category);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, model, year, body, author);
+        return Objects.hash(id, title, model, year, body, author, category);
     }
 
     @Override
@@ -94,6 +103,7 @@ public class Post {
                 ", year=" + year +
                 ", body='" + body + '\'' +
                 ", author='" + author + '\'' +
+                ", category=" + category +
                 '}';
     }
 }
