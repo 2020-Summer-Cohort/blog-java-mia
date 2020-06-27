@@ -25,13 +25,13 @@ public class Post {
 
     protected Post(){}
 
-    public Post(String model, int year, String title, String body, String author, Category category, Hashtag...hashtags) {
+    public Post(String model, int year, String title, String body, Category category, String author, Hashtag...hashtags) {
         this.title = title;
         this.model = model;
         this.year = year;
         this.body = body;
-        this.author = author;
         this.category = category;
+        this.author = author;
         this.hashtags = new ArrayList<>(Arrays.asList(hashtags));
     }
 
