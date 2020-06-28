@@ -34,6 +34,18 @@ public class Hashtag {
         return posts;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setHashtagName(String hashtagName) {
+        this.hashtagName = hashtagName;
+    }
+
+    public void setPosts(Collection<Post> posts) {
+        this.posts = posts;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

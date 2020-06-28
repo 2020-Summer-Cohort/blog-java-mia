@@ -4,10 +4,11 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Miata Blog</title>
-    <!-- <link rel="stylesheet" href="../css/layout.css"/>
-    <link rel="stylesheet" href="../css/style.css"/> -->
+    <link rel="stylesheet" href="../css/authors-layout.css"/>
+    <link rel="stylesheet" href="../css/authors-style.css"/>
 </head>
-<header>
+<div class="container">
+    <body>
     <h1>Miata Blog</h1>
     <div class="links">
             <a href="/">Home</a>
@@ -15,23 +16,21 @@
             <a href="/authors">Authors</a>
             <a href="/hashtags">Hashtags</a>
         </div>
-</header>
-<body>
-<div class="container">
     <div class="authors">
         <h2>Authors</h2>
-        <ul>
+        <ul class="left-side">
             <li th:each="author: ${authors}"><a th:text="${author.name}" th:href="'/authors/' + ${author.name}">Jimmy Buffet
             </a></li>
         </ul>
     </div>
+    <h2 class="right-side">Add an Author</h2>
     <form action="/addAuthor" method="POST">
-        <label for="add__an__author" class="form__label">Add Author</label>
+        <label for="add__an__author" class="form__label"></label>
         <input type="text" name="name" id="add__an__author">
         <button>Add</button>
     </form>
-</div>
 </body>
+</div>
 <footer>
 </footer>
 </html>

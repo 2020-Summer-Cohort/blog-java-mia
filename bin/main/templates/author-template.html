@@ -4,26 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Miata Blog</title>
-    <!-- <link rel="stylesheet" href="../css/layout.css" />
-    <link rel="stylesheet" href="../css/style.css" /> -->
+    <link rel="stylesheet" href="../css/author-layout.css" />
+    <link rel="stylesheet" href="../css/author-style.css" />
 </head>
-<header>
+<div class="container">
     <h1>Miata Blog</h1>
     <div class="links">
-            <a href="/">Home</a>
-            <a href="/categories">Categories</a>
-            <a href="/authors">Authors</a>
-            <a href="/hashtags">Hashtags</a>
-        </div>
-</header>
-<body>
-<div class="container">
+        <a href="/">Home</a>
+        <a href="/categories">Categories</a>
+        <a href="/authors">Authors</a>
+        <a href="/hashtags">Hashtags</a>
+    </div>
+    <body>
     <h2 th:text="${authorName} + '\'s Posts'">Jimmy Buffet</h2>
     <ul>
         <li th:each="post: ${author.posts}"><a th:text="${post.postTitle}" th:href="'/post/' + ${post.postTitle}">Post Title</a></li>
     </ul>
-</div>
 </body>
+</div>
 <footer>
 </footer>
 </html>
