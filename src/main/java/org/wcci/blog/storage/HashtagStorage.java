@@ -20,7 +20,7 @@ public class HashtagStorage {
         return hashtagRepo.findHashtagByHashtagName(hashtagName).get();
     }
 
-    public void addHashtag(Hashtag hashtagToAdd) {
+    public void addAHashtagToPost(Hashtag hashtagToAdd) {
         hashtagRepo.save(hashtagToAdd);
     }
 
@@ -31,4 +31,5 @@ public class HashtagStorage {
     public boolean hashtagExists(String hashtagName) {
         return hashtagRepo.findHashtagByHashtagName(hashtagName).isPresent();
     }
+
 }

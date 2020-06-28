@@ -66,8 +66,8 @@ public class Post {
         return hashtags;
     }
 
-    public void addHashtag(Hashtag hashtagName) {
-        hashtags.add(hashtagName);
+    public void addAHashtagToPost(Hashtag hashtagToAdd) {
+        hashtags.add(hashtagToAdd);
     }
 }
 

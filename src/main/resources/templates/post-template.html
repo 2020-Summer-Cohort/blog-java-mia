@@ -29,6 +29,12 @@
                     <li th:each="hashtag: ${post.hashtags}"><a th:text="${hashtag.hashtagName}" th:href="'/hashtags/' +${hashtag.hashtagName}"></a>
                     </li>
                 </ul>
+                <form action="/posts/addHashtag" method="POST">
+                    <label for="add-hashtag" class="form__label">Add a hashtag</label>
+                    <input type="text" name="hashtagName" id="add-hashtag">
+                    <input type="hidden" th:value="${post.postTitle}" id="" name="postTitle">
+                    <button>Add</button>
+                </form>
             </div>
     </div>
 </body>

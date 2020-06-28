@@ -18,7 +18,7 @@ public class CategoryController {
     }
 
     @GetMapping("categories")
-    public String showAllCategories( Model model) {
+    public String showAllCategories(Model model) {
         model.addAttribute("categories",categoryStorage.findAllCategories());
         return "categories-template";
     }
