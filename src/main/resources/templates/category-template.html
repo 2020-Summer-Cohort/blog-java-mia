@@ -1,50 +1,32 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Miata | Modifications</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dosis&family=Montserrat:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <!-- <link rel="stylesheet" href="../css/style.css" type="text/css" /> -->
-  </head>
-  <body>
-    <header>
-      <h1 th:text="${category.name}" class="category-name">Modifications</h1>
-      <h2 th:text="${category.description}" class="category-description">
-        This page should only have posts about modifications, such as turbo
-        posts.
-      </h2>
-      <ul th:each="post: ${category.posts}">
-        <li><a th:text="${post.title}" th:href="@{'/posts/'+ ${post.title}}"></a></li>
-      </ul>
-      <section>
-        <h3>Create a Post:</h3>
-        <form action="post/add" method="POST" class="new-post-form">
-          <div class="input-align">
-            <label for="new-post-title" class="form-label">Title</label>
-            <input type="text" name="title" id="new-post-title">
-            <br>
-            <label for="new-post-model" class="form-label">Model</label>
-            <input type="text" name="model" id="new-post-model">
-            <br>
-            <label for="new-post-year" class="form-label">Year</label>
-            <input type="text" name="year" id="new-post-year">
-            <br>
-            <label for="new-post-body" class="form-label">Body</label>
-            <textarea class="textbox-id" name="body" id="new-post-body" cols="30" rows="10" maxlength="250"></textarea>
-            <br>
-            <label for="new-post-author" class="form-label">Author</label>
-            <input type="text" name="author" id="new-post-author">
-            <br>
-            <input type="hidden" name="category" id="" th:value="${category.id}">
-            <button class="btn" type="submit">Submit</button>
-          </div>
-        </form>
-      </section>
-    </header>
-  </body>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Miata Blog</title>
+    <!-- <link rel="stylesheet" href="../css/layout.css"/>
+    <link rel="stylesheet" href="../css/style.css"/> -->
+</head>
+<header>
+    <h1>Miata Blog</h1>
+    <div class="dropdown">
+        <button class="dropbtn">Navigate</button>
+        <div class="dropdown-content">
+            <a href="/">Home</a>
+            <a href="/categories">Categories</a>
+            <a href="/authors">Authors</a>
+            <a href="/hashtags">Hashtags</a>
+        </div>
+    </div>
+</header>
+<body>
+<div class="container">
+    <h2 th:text="${category.categoryName} + ' Posts:'">Maintenance</h2>
+    <ul>
+        <li th:each="post: ${category.posts}"><a th:text="${post.postTitle}" th:href="'/post/' + ${post.postTitle}">Post Title</a></li>
+    </ul>
+</div>
+</body>
+<footer>
+</footer>
 </html>

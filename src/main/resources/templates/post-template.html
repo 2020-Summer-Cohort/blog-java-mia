@@ -8,17 +8,28 @@
       href="https://fonts.googleapis.com/css2?family=Dosis&family=Montserrat:wght@300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/style.css" type="text/css" />
-    <title>Miata | Modifications</title>
+    <!-- <link rel="stylesheet" href="../css/style.css" type="text/css" /> -->
+    <title>Miata Blog</title>
 </head>
 <body>
     <header>
-        <h1>Modifications Posts</h1>
+        <h1><a th:text="${post.category.categoryName}" th:href="'/category/' + ${post.category.categoryName}">
+        Maintenance</a></h1>
     </header>
-    <h2 th:text="${postToDisplay.title}" class="post-title">Turbo Help</h2>
-    <h2 th:text="${postToDisplay.model}" class="model">NA</h2>
-    <h2 th:text="${postToDisplay.year}" class="year">1993</h2>
-    <h2 th:text="${postToDisplay.body}" class="body">I'm not sure how to install a turbo.</h2>
-    <h2 th:text="${postToDisplay.author}" class="author">Ricky Bobby</h2>
+    <div class="container">
+            <h2 th:text="${post.postTitle}">
+            </h2>
+            <h2 th:text="${post.model}"></h2>
+            <h2 th:text="${post.year}"></h2>
+            <h2 th:text="${post.postBody}"></h2>
+            <h3>Author: <a th:text="${post.author.name}" th:href="'/authors/' + ${post.author.name}"></a></h3>
+            <div class="hashtags">
+                <h3>Hashtags</h3>
+                <ul>
+                    <li th:each="hashtag: ${post.hashtags}"><a th:text="${hashtag.hashtagName}" th:href="'/hashtags/' +${hashtag.hashtagName}"></a>
+                    </li>
+                </ul>
+            </div>
+    </div>
 </body>
 </html>

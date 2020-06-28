@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Hashtag {
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
     private String hashtagName;
     @ManyToMany(mappedBy = "hashtags")
     private Collection<Post> posts;
@@ -22,7 +22,7 @@ public class Hashtag {
         this.hashtagName = hashtagName;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -39,7 +39,7 @@ public class Hashtag {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Hashtag hashtag = (Hashtag) o;
-        return id == hashtag.id &&
+        return Objects.equals(id, hashtag.id) &&
                 Objects.equals(hashtagName, hashtag.hashtagName);
     }
 

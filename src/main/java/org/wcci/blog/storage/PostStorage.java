@@ -6,25 +6,21 @@ import org.wcci.blog.storage.repositories.PostRepository;
 
 @Service
 public class PostStorage {
-    PostRepository postRepo;
+    private PostRepository postRepo;
 
     public PostStorage(PostRepository postRepo) {
         this.postRepo = postRepo;
     }
 
-    public Post findPostByTitle(String postTitle) {
-        return postRepo.findByTitle(postTitle);
+    public Post findPostByPostTitle(String postTitle) {
+        return postRepo.findByPostTitle(postTitle).get();
     }
 
-    public Iterable<Post> findAllPosts() {
-        return postRepo.findAll();
+    public PostRepository getPostRepo() {
+        return postRepo;
     }
 
-    public void addPost(Post post) {
-        postRepo.save(post);
-    }
-
-    public void deletePost(Post post) {
-        postRepo.delete(post);
+    public void addPost(Post testPost) {
+        postRepo.save(testPost);
     }
 }

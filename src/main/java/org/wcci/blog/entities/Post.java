@@ -10,37 +10,36 @@ import java.util.Objects;
 public class Post {
     @Id
     @GeneratedValue
-    private long id;
-    private String title;
+    private Long id;
+    private String postTitle;
     private String model;
     private int year;
-    private String body;
-    private String author;
+    private String postBody;
+    @ManyToOne
+    private Author author;
     @ManyToOne
     private Category category;
     @ManyToMany
     private Collection<Hashtag> hashtags;
-    @OneToMany(mappedBy = "post")
-    private Collection<UserComment> userComments;
 
     protected Post(){}
 
-    public Post(String model, int year, String title, String body, Category category, String author, Hashtag...hashtags) {
-        this.title = title;
+    public Post(String postTitle, String model, int year, String postBody, Author author, Category category, Hashtag... hashtags) {
+        this.postTitle = postTitle;
         this.model = model;
         this.year = year;
-        this.body = body;
-        this.category = category;
+        this.postBody = postBody;
         this.author = author;
+        this.category = category;
         this.hashtags = new ArrayList<>(Arrays.asList(hashtags));
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getPostTitle() {
+        return postTitle;
     }
 
     public String getModel() {
@@ -51,11 +50,11 @@ public class Post {
         return year;
     }
 
-    public String getBody() {
-        return body;
+    public String getPostBody() {
+        return postBody;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
@@ -67,44 +66,8 @@ public class Post {
         return hashtags;
     }
 
-    public void addHashtag(Hashtag hashtagToAdd) {
-        hashtags.add(hashtagToAdd);
-    }
-
-    public Collection<UserComment> getUserComments() {
-        return userComments;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Post post = (Post) o;
-        return id == post.id &&
-                year == post.year &&
-                Objects.equals(title, post.title) &&
-                Objects.equals(model, post.model) &&
-                Objects.equals(body, post.body) &&
-                Objects.equals(author, post.author) &&
-                Objects.equals(category, post.category);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, model, year, body, author, category);
-    }
-
-    @Override
-    public String toString() {
-        return "Post{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", model='" + model + '\'' +
-                ", year=" + year +
-                ", body='" + body + '\'' +
-                ", author='" + author + '\'' +
-                ", category=" + category +
-                '}';
+    public void addHashtag(Hashtag hashtagName) {
+        hashtags.add(hashtagName);
     }
 }
 

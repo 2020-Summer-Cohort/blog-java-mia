@@ -9,24 +9,30 @@
 </head>
 <header>
     <h1>Miata Blog</h1>
-    <div class="dropdown">
-        <button class="dropbtn">Navigate</button>
-        <div class="dropdown-content">
+    <div class="links">
             <a href="/">Home</a>
             <a href="/categories">Categories</a>
             <a href="/authors">Authors</a>
             <a href="/hashtags">Hashtags</a>
         </div>
-    </div>
 </header>
 <body>
 <div class="container">
-    <h2 th:text="${category.categoryName} + ' Posts:'">Maintenance</h2>
-    <ul>
-        <li th:each="post: ${category.posts}"><a th:text="${post.postTitle}" th:href="'/post/' + ${post.postTitle}">Post Title</a></li>
-    </ul>
+    <div class="categories">
+        <h2>Categories:</h2>
+        <ul>
+            <li th:each="category: ${categories}"><a th:text="${category.categoryName}"
+                                                     th:href="'/category/' + ${category.categoryName}">Maintenance</a>
+            </li>
+        </ul>
+    </div>
+    <form action="/addCategory" method="POST">
+        <label for="add__a__category" class="form__label">Add a Category:</label>
+        <input type="text" name="categoryName" id="add__a__category">
+        <button>Add</button>
+    </form>
 </div>
-</body>
 <footer>
 </footer>
+</body>
 </html>

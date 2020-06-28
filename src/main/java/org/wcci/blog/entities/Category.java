@@ -11,29 +11,23 @@ import java.util.Objects;
 public class Category {
     @Id
     @GeneratedValue
-    private long id;
-    private String name;
-    private String description;
+    private Long id;
+    private String categoryName;
     @OneToMany(mappedBy = "category")
     private Collection<Post> posts;
 
     protected Category(){}
 
-    public Category(String name, String description) {
-        this.name = name;
-        this.description = description;
+    public Category(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public long getId() {
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public Long getId() {
         return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public Collection<Post> getPosts() {
@@ -45,22 +39,20 @@ public class Category {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Category category = (Category) o;
-        return id == category.id &&
-                Objects.equals(name, category.name) &&
-                Objects.equals(description, category.description);
+        return Objects.equals(id, category.id) &&
+                Objects.equals(categoryName, category.categoryName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description);
+        return Objects.hash(id, categoryName);
     }
 
     @Override
     public String toString() {
         return "Category{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
+                ", categoryName='" + categoryName + '\'' +
                 '}';
     }
 }

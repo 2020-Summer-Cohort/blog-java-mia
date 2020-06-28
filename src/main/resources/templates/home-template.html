@@ -3,33 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dosis&family=Montserrat:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css/style.css" type="text/css" />
-    <link rel="stylesheet" href="./css/home-layout.css" type="text/css" />
     <title>Miata Blog</title>
+    <!-- <link rel="stylesheet" href="../css/home-layout.css" />
+    <link rel="stylesheet" href="../css/style.css" /> -->
   </head>
+  <header>
+    <h1>Miata Blog</h1>
+  </header>
   <body>
     <div class="container">
-      <header>
-        <h1>Miata Blog</h1>
-      </header>
-      <section>
-        <nav class="navbar">
-          <ul th:each="category: ${categories}">
-            <li>
-              <a
-                th:text="${category.name}"
-                th:href="@{'/categories/'+${category.name}}"
-                >
-                Maintenance</a>
-            </li>
-          </ul>
-        </nav>
-      </section>
+      <div class="categories">
+        <h2><a href="/categories">Categories</a></h2>
+      </div>
+      <div class="authors">
+        <h2><a href="/authors">Authors</a></h2>
+      </div>
+      <div class="hashtags">
+        <h2><a href="/hashtags">Hashtags</a></h2>
+      </div>
     </div>
   </body>
+  <footer>
+  </footer>
 </html>

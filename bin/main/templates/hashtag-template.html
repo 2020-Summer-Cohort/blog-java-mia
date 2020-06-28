@@ -9,21 +9,18 @@
 </head>
 <header>
     <h1>Miata Blog</h1>
-    <div class="dropdown">
-        <button class="dropbtn">Navigate</button>
-        <div class="dropdown-content">
+    <div class="links">
             <a href="/">Home</a>
             <a href="/categories">Categories</a>
             <a href="/authors">Authors</a>
             <a href="/hashtags">Hashtags</a>
         </div>
-    </div>
 </header>
 <body>
 <div class="container">
-    <h2 th:text="${category.categoryName} + ' Posts:'">Maintenance</h2>
+    <h2 th:text="${hashtag.hashtagName}">oilchange</h2>
     <ul>
-        <li th:each="post: ${category.posts}"><a th:text="${post.postTitle}" th:href="'/post/' + ${post.postTitle}">Post Title</a></li>
+        <li th:each="post: ${hashtag.posts}"><a th:text="${post.postTitle}" th:href="'/post/' + ${post.postTitle}">Oil Change</a></li>
     </ul>
 </div>
 </body>
