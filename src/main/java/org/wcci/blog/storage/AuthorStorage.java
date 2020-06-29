@@ -20,8 +20,8 @@ public class AuthorStorage {
         return authorRepo.findByName(name).get();
     }
 
-    public void addAuthor(Author testAuthor) {
-        authorRepo.save(testAuthor);
+    public void addAuthor(Author authorToAdd) {
+        authorRepo.save(authorToAdd);
     }
 
     public Iterable<Author> findAllAuthors() {
