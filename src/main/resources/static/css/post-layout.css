@@ -11,7 +11,7 @@
 .container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(9) 1fr;
 }
 
 h1 {
@@ -28,44 +28,38 @@ h1 {
     grid-row: 2 / 3;
 }
 
-.model {
+.model-year {
     display: grid;
     grid-column: 1 / 2;
     grid-row: 3 / 4;
 }
 
-.year {
+.body {
     display: grid;
     grid-column: 1 / 2;
     grid-row: 4 / 5;
 }
 
-.body {
+.author {
     display: grid;
     grid-column: 1 / 2;
     grid-row: 5 / 6;
 }
 
-.author {
+.hashtag-title {
     display: grid;
     grid-column: 1 / 2;
     grid-row: 6 / 7;
 }
 
-.hashtag-title {
+ul {
     display: grid;
     grid-column: 1 / 2;
     grid-row: 7 / 8;
 }
 
-ul {
-    display: grid;
-    grid-column: 1 / 2;
-    grid-row: 8 / 9;
-}
-
 form {
     display: grid;
     grid-column: 1 / 2;
-    grid-row: 9 / 10;
+    grid-row: 8 / 9;
 }

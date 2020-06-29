@@ -16,7 +16,7 @@
         <a href="/hashtags">Hashtags</a>
     </div>
     <body>
-    <h2 th:text="${hashtag.hashtagName}">oilchange</h2>
+    <h2 th:text="'#' + ${hashtag.hashtagName}">oilchange</h2>
     <ul>
         <li th:each="post: ${hashtag.posts}"><a th:text="${post.postTitle}" th:href="'/post/' + ${post.postTitle}">Oil Change</a></li>
     </ul>

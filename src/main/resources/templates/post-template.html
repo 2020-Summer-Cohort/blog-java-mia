@@ -14,14 +14,13 @@
 </head>
 <div class="container">
 <body>
-        <h1><a th:text="${post.category.categoryName}" th:href="'/category/' + ${post.category.categoryName}">
+        <h1 class="category"><a th:text="${post.category.categoryName}" th:href="'/category/' + ${post.category.categoryName}">
         Maintenance</a></h1>
             <h2 class="title" th:text="${post.postTitle}">
             </h2>
-            <h2 class="model" th:text="${post.model}"></h2>
-            <h2 class="year" th:text="${post.year}"></h2>
-            <h2 class="body" th:text="${post.postBody}"></h2>
-            <h3 class="author"><a th:text="'By: ' + ${post.author.name}" th:href="'/authors/' + ${post.author.name}"></a></h3>
+            <h3 class="model-year" th:text="${post.model} + ', ' + ${post.year}"></h3>
+            <h3 class="body" th:text="${post.postBody}"></h3>
+            <h4 class="author"><a th:text="'By: ' + ${post.author.name}" th:href="'/authors/' + ${post.author.name}"></a></h4>
             <div class="hashtags">
                 <h3 class="hashtag-title">Hashtags</h3>
                 <ul>
