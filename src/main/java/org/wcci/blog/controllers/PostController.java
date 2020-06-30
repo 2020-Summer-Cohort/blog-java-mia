@@ -34,7 +34,7 @@ public class PostController {
         return "post-template";
     }
 
-    @PostMapping("/addPost")
+    @PostMapping("/category/addPost")
     public String addAPost(String postTitle, String model, int year, String postBody, String name, String categoryName, String hashtagName){
         Category categoryToAdd = new Category(categoryName);
         categoryStorage.addCategory(categoryToAdd);
