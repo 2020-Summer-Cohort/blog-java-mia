@@ -36,8 +36,7 @@ public class PostController {
 
     @PostMapping("/category/addPost")
     public String addAPost(String postTitle, String model, int year, String postBody, String name, String categoryName, String hashtagName){
-        Category categoryToAdd = new Category(categoryName);
-        categoryStorage.addCategory(categoryToAdd);
+        Category categoryToAdd = categoryStorage.findCategoryByName(categoryName);
         Hashtag hashtagToAdd = new Hashtag(hashtagName);
         hashtagStorage.addAHashtagToPost(hashtagToAdd);
         Author authorToAdd = new Author(name);
@@ -46,23 +45,6 @@ public class PostController {
         postStorage.addPost(postToAdd);
         return "redirect:/post/" + postTitle;
     }
-
-//    @PostMapping("/post/addHashtag")
-//    public String addAHashtagToPost(String hashtagName, String postTitle) {
-//        if (hashtagStorage.hashtagExists(hashtagName)) {
-//            Hashtag hashtagToAdd = hashtagStorage.findHashtagByHashtagName(hashtagName);
-//            Post postToUpdate = postStorage.findPostByPostTitle(postTitle);
-//            postToUpdate.addAHashtagToPost(hashtagToAdd);
-//            postStorage.addPost(postToUpdate);
-//            return "redirect:/post/" + postTitle;
-//        }
-//        Hashtag hashtagToAdd = new Hashtag(hashtagName);
-//        hashtagStorage.addAHashtagToPost(hashtagToAdd);
-//        Post postToUpdate = postStorage.findPostByPostTitle(postTitle);
-//        postToUpdate.addAHashtagToPost(hashtagToAdd);
-//        postStorage.addPost(postToUpdate);
-//        return "redirect:/post/" + postTitle;
-//    }
 
     @PostMapping("/post/addHashtag")
     public String addHashTagToReview(String postTitle, String hashtagName){
